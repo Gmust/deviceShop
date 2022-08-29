@@ -5,12 +5,14 @@ const userRouter = require('./userRouter');
 const deviceRouter = require('./deviceRouter');
 const brandRouter = require('./brandRouter');
 const typeRouter = require('./typeRouter');
+const basketRouter = require('./basketRouter')
 
 
 router.use('/user',  userRouter);
-router.use('/device',deviceRouter);
+router.use('/device', deviceRouter);
 router.use('/brand',brandRouter);
 router.use('/type',typeRouter);
+router.use('/basket', basketRouter)
 
 
 

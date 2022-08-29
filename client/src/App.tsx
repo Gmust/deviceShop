@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import Router from "./components/Router";
+import {BrowserRouter} from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import {check} from "./services/authApi";
+import {setIsAuth, setUser} from "./store/userSlice";
+import {useAppDispatch} from "./hooks/redux";
+import {Triangle} from "react-loader-spinner";
+import './app.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    const [loading, setLoading] = useState<boolean>(true)
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        check().then(data => {
+            dispatch(setIsAuth(true))
+        }).finally(()=> setLoading(false))
+    }, [])
+if (loading){
+
+    return  <Triangle
+        height="80"
+        width="80"
+        color="#4fa94d"
+        ariaLabel="triangle-loading"
+        // @ts-ignore
+        wrapperClassName="preloader-wrapper"
+        visible={true}
+    />
+
 }
+
+    return (
+        <>
+            <BrowserRouter>
+                <Navbar/>
+                <Router/>
+            </BrowserRouter>
+        </>
+
+    );
+};
 
 export default App;

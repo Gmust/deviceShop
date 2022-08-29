@@ -1,0 +1,83 @@
+.authWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formWrapper {
+    display: flex;
+    border: 1px solid black;
+    width: 500px;
+    height: 300px;
+    border-radius: 40px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formWrapper h1 {
+    padding: 30px;
+    font-size: 20px;
+    font-family: "Bookman Old Style", serif;
+    font-weight: 500;
+}
+
+.formInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputStyle {
+    height: 30px;
+    width: 300px;
+    border-radius: 10px;
+    background: aliceblue;
+}
+
+.inputStyle::placeholder{
+    font-size: 13px;
+    font-family: "Bookman Old Style", serif;
+    font-weight: 500;
+    opacity: 0.3;
+    color: black;
+}
+
+.inputStyle:hover{
+    scale: 1.1;
+    border-color: cornflowerblue;
+}
+
+.footStyle{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 3px;
+}
+
+
+.loginBtn{
+    font-size: 13px;
+    font-family: "Bookman Old Style", serif;
+    font-weight: 500;
+    margin-top: 15px;
+    background: white;
+    border: 1px solid black;
+    height: 30px;
+    width: 200px;
+    align-items: center;
+}
+
+.loginBtn:hover{
+    scale: 1.1;
+    background: dodgerblue;
+    color:white;
+    transition: 400ms;
+}
+
+
+.formWrapper a{
+    font-size: 13px;
+    font-family: "Bookman Old Style", serif;
+    font-weight: 500;
+    margin-top: 20px;
+}

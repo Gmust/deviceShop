@@ -1,0 +1,90 @@
+/*.goodCardWrapper{*/
+/*    display: flex;*/
+/*    border: 1px solid black;*/
+/*    height: 200px;*/
+/*    width: 100%;*/
+/*    align-content: space-between;*/
+/*    */
+/*}*/
+
+
+/*.imgStyle img{*/
+/*    height: 130px;*/
+/*    width: 120px;*/
+/*}*/
+
+
+/*.ratingStyle{*/
+/*    display: flex;*/
+/*    align-items: flex-end;*/
+/*    text-align: center;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+.goodCardWrapper{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    box-shadow: 5px 10px 18px #f6f5f5;
+    margin: 10px;
+    text-align: center;
+}
+.goodCardWrapper img {
+    margin-top: 15px;
+    height: 200px;
+    width: 190px;
+    border: 3px solid black;
+}
+
+.textStyle{
+    margin-bottom: 15px;
+    line-height: 50px;
+    font-family: Verdana, sans-serif;
+    font-weight: 900;
+    position: relative;
+    background: white;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.goodCardWrapper:hover{
+    scale: 1.1;
+    transition: 300ms;
+    color: red;
+
+}
+
+.textStyle:before {
+    content: '';
+    position: absolute;
+    filter: blur(10px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: screen;
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 1em, #095696 1em, #194b7e 50%), repeating-linear-gradient(90deg, #2c64a8, #124a79 1em, #FFF 1em, #BFE2FF 50%);
+    background-size: 3em 3em, 2em 2em;
+    animation-name: ani;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes ani {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+
+.ratingStyle{
+    font-size: 20px;
+    margin-bottom: 15px;
+}

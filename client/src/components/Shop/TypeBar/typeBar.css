@@ -1,0 +1,16 @@
+
+
+.listStyle {
+    text-align: center;
+    background: red;
+    margin-right: 70px;
+    margin-left: 70px;
+    color: white;
+    cursor: pointer;
+}
+
+.listStyle li:hover{
+    scale: 1.1;
+}
+
+

@@ -1,0 +1,32 @@
+.brandsStyle{
+        cursor: pointer;
+
+}
+
+
+.filterBtn {
+        margin: 0 20px;
+        background: white;
+        border: 1px solid red;
+        cursor: pointer;
+        height: 30px;
+        width: 100px;
+}
+
+.selectedFilterBtn{
+        margin: 0 20px;
+        background: red;
+        border: 1px solid black;
+        cursor: pointer;
+        height: 30px;
+        width: 100px;
+
+}
+
+.filterBtn:hover {
+        scale: 1.1;
+        background: red;
+        color: white;
+        transition: 500ms;
+        border: 1px solid black;
+}

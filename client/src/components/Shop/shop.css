@@ -1,0 +1,46 @@
+.showWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    ". filters filters filters ."
+    "types goods goods goods goods"
+    "types goods goods goods goods"
+    ". goods goods goods goods"
+    ". goods goods goods goods"
+    ". goods goods goods goods"
+    ". paginator paginator paginator .";
+}
+
+.types {
+    grid-area: types;
+    justify-content: center;
+}
+
+
+.brands {
+    grid-area: filters;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.goods {
+    grid-area: goods;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-gap: 20px;
+}
+
+.paginator {
+    grid-area: paginator;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+

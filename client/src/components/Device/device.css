@@ -1,0 +1,131 @@
+.deviceWrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr ;
+    gap: 5px 5px;
+    grid-template-areas:
+    "img img name name name"
+    "img img deviceInteractions deviceInteractions deviceInteractions"
+    "img img deviceInteractions deviceInteractions deviceInteractions"
+    "img img deviceInteractions deviceInteractions deviceInteractions"
+    "description description rating rating rating"
+    "description description rating rating rating"
+}
+
+
+.imgStyle {
+    grid-area: img;
+}
+
+.imgStyle img {
+    height: 400px;
+    width: 500px;
+    margin-top: 40px;
+    margin-left: 20px;
+    border: 2px solid #b7b7b7;
+    box-shadow: 12px 12px 2px 1px rgba(215, 202, 202, 0.2);
+
+
+}
+
+.deviceInteractions {
+    grid-area: deviceInteractions;
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+
+.interactionBtnStyle {
+    margin-top: 20px;
+    background: white;
+    border: 1px solid red;
+    cursor: pointer;
+    height: 50px;
+}
+
+.interactionBtnStyle:hover {
+    scale: 1.1;
+    background: red;
+    color: white;
+    transition: 500ms;
+    border: 1px solid black;
+}
+
+
+.nameStyle {
+    font-size: 40px;
+    grid-area: name;
+    color: black;
+    margin-top: 20px;
+    text-align: center;
+    font-family: "Bookman Old Style", serif;
+    margin-right: 80px;
+}
+
+.description {
+    grid-area: description;
+    height: 100px;
+    margin-top: 30px;
+}
+
+.description h1{
+    font-size: 35px;
+    margin-left: 170px;
+}
+
+.infoStyle{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    font-size: 20px  ;
+    font-family: "Bookman Old Style", serif;
+    margin-left: 170px;
+    border: 1px solid black;
+}
+
+
+
+
+.rating {
+    font-size: 30px;
+    grid-area: rating;
+    display: block;
+    border: 1px solid black;
+    height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.priceStyle{
+    margin-top: 10px;
+    border: 1px solid black ;
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 900px) {
+    .imgStyle img {
+        height: 200px;
+        width: 300px;
+        margin-top: 40px;
+        margin-left: 20px;
+        border: 2px solid #b7b7b7;
+        box-shadow: 12px 12px 2px 1px rgba(215, 202, 202, 0.2);
+    }
+
+    .nameStyle {
+        font-size: 20px;
+        grid-area: name;
+        color: black;
+        margin-top: 20px;
+        text-align: center;
+        font-family: "Bookman Old Style", serif;
+        margin-right: 80px;
+    }
+
+    .rating{
+        height:60px;
+    }
+}
+
+

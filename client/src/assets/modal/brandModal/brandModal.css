@@ -1,0 +1,41 @@
+.brandModalWrapper{
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.brandInputStyle{
+    font-size: 40px;
+    font-family: "Bookman Old Style", serif;
+    font-weight: 400;
+    color: black;
+}
+
+.brandInputStyle:hover{
+   scale: 1.1;
+}
+
+
+.btnStyle {
+    border: 1px solid white;
+    width: 120px;
+    height: auto;
+    font-size: 40px;
+    background: red;
+    color: white;
+    cursor: pointer;
+    margin: 3px;
+    border-radius: 10px;
+}
+
+.btnStyle:hover{
+    transform: scale(1.1);
+    transition: transform 0.25s;
+}
+
+.csd{
+    margin-top: 20px;
+}

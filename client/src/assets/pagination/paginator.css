@@ -1,0 +1,31 @@
+.paginator-wrapper  {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    font-size: 15px;
+    padding: 20px;
+    font-family: "Bookman Old Style", serif;
+
+}
+
+.paginator-item{
+    border: 1px solid black;
+    margin: -5px 2px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.paginator-item:hover{
+    transform: scale(1.1);
+    transition: 300ms;
+    background: cornflowerblue;
+    color: white;
+    border: none;
+}
+
+.page-active{
+    background: cornflowerblue;  border: 1px solid black;
+
+
+}
