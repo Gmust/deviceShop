@@ -20,7 +20,7 @@
 }
 
 
-.name:active{
+.name:active {
     transform: scale(1.2);
     transition: transorm 0.2s;
 }
@@ -44,7 +44,30 @@
     border-radius: 10px;
 }
 
-.buttonStyle:hover{
+.buttonStyle:hover {
     transform: scale(1.1);
     transition: transform 0.25s;
 }
+
+.basket-icon-style {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.basket-icon-style:hover {
+    transform: scale(1.1);
+    transition: 500ms;
+}
+
+.items-in-basket{
+    margin-left: 16px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid red;
+    border-radius: 50%;
+    line-height: 16px;
+    background: cornflowerblue;
+    color:white;
+}
+

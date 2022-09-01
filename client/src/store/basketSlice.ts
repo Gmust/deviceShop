@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 
 const initialState = {
-    basket: []
+    basket: [],
 }
 
 
@@ -13,7 +13,6 @@ const basketSlice = createSlice({
         setBasket(state, action) {
                 state.basket = action.payload;
         }
-
     }
 
 })

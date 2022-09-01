@@ -1,7 +1,7 @@
 import './device.css';
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import {addToBasket, fetchOneDevice} from "../../services/deviceAPI";
+import {addToBasket, fetchOneDevice, getBasket} from "../../services/deviceAPI";
 import Rating from "./Rating/Rating";
 import {useAppSelector} from "../../hooks/redux";
 
@@ -10,20 +10,17 @@ const Device = () => {
     const [device, setDevice] = useState<any[{}]>({info: []});
     const {id} = useParams();
     const {user} = useAppSelector(state => state.user)
+    const {basket} = useAppSelector(state => state.basket)
 
     useEffect(() => {
         fetchOneDevice(Number(id)).then(data => setDevice(data))
     }, [])
 
-    console.log(user.id)
-
     const handleAddToBasket = () => {
-        const formData = new FormData();
+        const formData = new FormData()
         // @ts-ignore
         formData.append('deviceId', id)
-        // @ts-ignore
-        formData.append('basketId', user.id)
-        addToBasket(formData).then(response => alert(`Item` + device.name`has been successfully to the basket `))
+        addToBasket(formData).then(response => alert(`Item` +  device.name + `has been successfully to the basket `))
     }
 
     return (
