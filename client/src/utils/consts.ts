@@ -1,6 +1,6 @@
 const ADMIN_ROUTE = '/admin'
-const LOGIN_ROUTE = '/login'
-const REGISTRATION_ROUTE = '/registration'
+const LOGIN_ROUTE = '/Login'
+const REGISTRATION_ROUTE = '/Registration'
 const BASKET_ROUTE = '/basket'
 const DEVICE_ROUTE = '/device'
 const SHOP_ROUTE ='/'

@@ -3,9 +3,8 @@ import {ADMIN_ROUTE, BASKET_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE
 import BasketPage from "./pages/BasketPage";
 import DevicePage from "./pages/DevicePage";
 import MainShopPage from "./pages/MainShopPage";
-import Auth from "./pages/Auth";
-
-
+import LoginForm from "./components/Auth/Login/LoginForm";
+import RegistrationForm from "./components/Auth/Registration/RegistrationForm";
 
 
 
@@ -29,11 +28,11 @@ export const publicRoutes =[
     },
         {
         path:LOGIN_ROUTE,
-        Component:Auth
+        Component: LoginForm
     },
     {
         path: REGISTRATION_ROUTE,
-        Component: Auth
+        Component: RegistrationForm
     },
     {
         path: SHOP_ROUTE,

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import './typeModal.css'
 import ModalWindow from "../ModalWindow";
 import {useInput} from "../../../hooks/useInput";
-import {createType} from "../../../services/deviceAPI";
+import {useCreateTypeMutation} from "../../../services/DeviceService";
 
 
 type TModalProps = {
@@ -10,12 +10,15 @@ type TModalProps = {
     setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const TypeModal: React.FC<TModalProps> = ({isActive, setIsActive}) => {
+const TypeModal = ({isActive, setIsActive}:TModalProps) => {
 
     const {bind, value, reset} = useInput('')
-
+    const  [createType, {data,error,isError}] = useCreateTypeMutation()
     const handleAddType =()=>{
-        createType({name:value}).then( data =>reset())
+        createType({name:value});
+        if(isError === false && !error){
+            reset();
+        }
         setIsActive(false)
     }
 

@@ -14,13 +14,14 @@ const Shop = () => {
     const {types, brands, devices, limit, page, selectedBrand, selectedType} = useAppSelector(state => state.device)
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        fetchTypes().then(data => dispatch(setTypes(data)))
-        fetchBrands().then(data => dispatch(setBrands(data)))
-        fetchDevices(null, null, 1, limit).then(data => {
-            dispatch(setDevices(data.rows))
-            dispatch(setTotalCount(data.count))
-        })
+
+    useEffect(  () => {
+            fetchTypes().then(data => dispatch(setTypes(data)))
+            fetchBrands().then(data => dispatch(setBrands(data)))
+            fetchDevices(null, null, 1, limit).then(data => {
+                dispatch(setDevices(data.rows))
+                dispatch(setTotalCount(data.count))
+            })
     }, [])
 
 
@@ -32,38 +33,37 @@ const Shop = () => {
     }, [page, selectedType, selectedBrand])
 
 
-    return (
-        <div className='showWrapper'>
+    return (<>
+                <div className='showWrapper'>
+                    <div className='types'>
+                        {
+                            types.map((item: { name: string; id: string }) => (
+                                <TypeBar name={item.name} id={item.id} key={item.id}/>
+                            ))}
+                    </div>
 
-            <div className='types'>
-                {
-                    types.map((item: { name: string; id: string }) => (
-                        <TypeBar name={item.name} id={item.id} key={item.id}/>
-                    ))}
-            </div>
+                    <div className='brands'>
+                        {brands.map((item: { name: string; id: string }) => (
+                            <BrandsFilter name={item.name} id={item.id} key={item.id}/>
+                        ))}
 
+                    </div>
 
-            <div className='brands'>
-                {brands.map((item: { name: string; id: string }) => (
-                    <BrandsFilter name={item.name} id={item.id} key={item.id}/>
-                ))}
+                    <div className='goods'>
+                        {devices.map((item: { name: string; id: number; price: number; rating: number; img: string }) => (
+                            <GoodCard id={item.id} name={item.name} price={item.price} rating={item.rating}
+                                      img={item.img}
+                                      key={item.id}/>
+                        ))}
+                        <br/>
+                    </div>
 
-            </div>
+                    <div className='paginator'>
+                        <Paginator/>
+                    </div>
 
-            <div className='goods'>
-                {devices.map((item: { name: string; id: number; price: number; rating: number; img: string }) => (
-                    <GoodCard id={item.id} name={item.name} price={item.price} rating={item.rating} img={item.img}
-                              key={item.id}/>
-                ))}
-                <br/>
-
-
-            </div>
-            <div className='paginator'>
-                <Paginator/>
-            </div>
-
-        </div>
+                </div>
+        </>
     );
 };
 

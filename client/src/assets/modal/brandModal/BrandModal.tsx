@@ -2,7 +2,7 @@ import React from 'react';
 import './brandModal.css'
 import ModalWindow from "../ModalWindow";
 import {useInput} from "../../../hooks/useInput";
-import {createBrand} from "../../../services/deviceAPI";
+import {useCreateBrandMutation} from "../../../services/DeviceService";
 
 
 type TModalProps = {
@@ -10,12 +10,17 @@ type TModalProps = {
     setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const BrandModal: React.FC<TModalProps> = ({isActive, setIsActive}) => {
+const BrandModal = ({isActive, setIsActive}:TModalProps) => {
+
 
     const {bind, value, reset} = useInput('')
-    const handleAddBrand = () => {
-        createBrand({name:value}).then(data => reset());
-        setIsActive(false);
+    const  [createBrand, {data,error,isError}] = useCreateBrandMutation()
+    const handleAddBrand =()=>{
+        createBrand({name:value});
+        if(isError === false && !error){
+            reset();
+        }
+        setIsActive(false)
     }
 
     return (

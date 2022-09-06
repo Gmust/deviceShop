@@ -9,9 +9,9 @@ import {Triangle} from "react-loader-spinner";
 import './app.css'
 import {getBasket} from "./services/deviceAPI";
 import {setBasket} from "./store/basketSlice";
+import Preloader from "./assets/preloader/Preloader";
 
 const App = () => {
-
     const [loading, setLoading] = useState<boolean>(true)
     const dispatch = useAppDispatch();
 
@@ -19,21 +19,11 @@ const App = () => {
         check().then(data => {
             dispatch(setIsAuth(true))
             getBasket().then(data => dispatch(setBasket(data)))
-        }).finally(()=> setLoading(false))
+        }).finally(() => setLoading(false))
     }, [])
-if (loading){
-
-    return  <Triangle
-        height="80"
-        width="80"
-        color="#4fa94d"
-        ariaLabel="triangle-loading"
-        // @ts-ignore
-        wrapperClassName="preloader-wrapper"
-        visible={true}
-    />
-
-}
+    if (loading) {
+         return   <Preloader/>
+    }
 
     return (
         <>

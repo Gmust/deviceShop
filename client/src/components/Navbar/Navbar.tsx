@@ -3,7 +3,7 @@ import './navbar.css';
 import {useNavigate} from "react-router-dom";
 import {ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE} from "../../utils/consts";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
-import {setIsAuth, setUser} from "../../store/userSlice";
+import {setIsAuth, setCredentials, IUser} from "../../store/userSlice";
 import {BsBasket} from "react-icons/bs";
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
     const role = "ADMIN"
     let itemsAmount = basket.length;
     const logOut = () => {
-        dispatch(setUser({id: null, email: null, role: null, password: null}));
+        dispatch(setCredentials({user:{id:null,email:null,role:null,password:null}, token:''}));
         dispatch(setIsAuth(false));
         localStorage.removeItem('token')
     }

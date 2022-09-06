@@ -3,8 +3,8 @@ import './deviceModal.css'
 import ModalWindow from "../ModalWindow";
 import {useAppDispatch, useAppSelector} from "../../../hooks/redux";
 import {selectBrand, selectType, setBrands,  setTypes} from "../../../store/devicesSlice";
-import {createDevice, fetchBrands,  fetchTypes} from "../../../services/deviceAPI";
-
+import { fetchBrands,  fetchTypes} from "../../../services/deviceAPI";
+import {useCreteDeviceMutation} from '../../../services/DeviceService'
 
 type TModalProps = {
     isActive: boolean,
@@ -15,6 +15,7 @@ type TModalProps = {
 const DeviceModal: React.FC<TModalProps> = ({isActive, setIsActive}) => {
 
     const dispatch = useAppDispatch();
+    const [createDevice, {data,isError, error}] = useCreteDeviceMutation();
     useEffect(() => {
         fetchTypes().then(data => dispatch(setTypes(data)))
         fetchBrands().then(data => dispatch(setBrands(data)))
@@ -50,7 +51,12 @@ const DeviceModal: React.FC<TModalProps> = ({isActive, setIsActive}) => {
         formData.append('brandId',selectedBrand)
         formData.append('typeId',selectedType )
         formData.append('info', JSON.stringify(info))
-        createDevice(formData).then(data => setIsActive(!isActive))
+        createDevice(formData)
+        if(isError === false){
+            setIsActive(false)
+        }else if (isError == true){
+            alert(error)
+        }
     }
 
 

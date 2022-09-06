@@ -10,7 +10,7 @@ export interface IUser {
 const initialState = {
     user: {} as IUser,
     isAuth: false,
-   
+    token: ''
 }
 
 
@@ -22,16 +22,18 @@ const userSlice = createSlice({
         setIsAuth (state,action: PayloadAction<boolean>){
             state.isAuth = action.payload;
         },
-        setUser (state , action: PayloadAction<IUser>){
-            state.user  = action.payload;
-        }
+        setCredentials (state , {payload:{user,token}}: PayloadAction<{ user: IUser; token: string }>){
+            state.user  = user;
+            state.token = token;
+        },
+
 
 
     }
 });
 
 
-export const {setIsAuth, setUser} = userSlice.actions;
+export const {setIsAuth, setCredentials} = userSlice.actions;
 export default userSlice.reducer;
 
 
